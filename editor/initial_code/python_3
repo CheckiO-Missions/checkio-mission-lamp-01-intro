@@ -1,16 +1,47 @@
-def sum_two(a, b):
+from datetime import datetime
+from typing import List
+
+def sum_light(els: List[datetime]) -> int:
     """
-        sums two passed arguments
+        how long the light bulb has been turned on
     """
-    # your code here
-    return None
+    return 0
 
 
 if __name__ == '__main__':
     print("Example:")
-    print(sum_two(3, 2))
+    print(sum_light((
+        datetime(2015, 1, 12, 10, 0 , 0),
+        datetime(2015, 1, 12, 10, 10 , 10),
+        datetime(2015, 1, 12, 11, 0 , 0),
+        datetime(2015, 1, 12, 11, 10 , 10),
+    )))
     
     # These "asserts" are used for self-checking and not for an auto-testing
-    assert sum_two(3, 2) == 5, "First"
-    assert sum_two(5, 7) == 12, "Second"
+    assert sum_light((
+        datetime(2015, 1, 12, 10, 0 , 0),
+        datetime(2015, 1, 12, 10, 10 , 10),
+    )) == 610
+
+    assert sum_light((
+        datetime(2015, 1, 12, 10, 0 , 0),
+        datetime(2015, 1, 12, 10, 10 , 10),
+        datetime(2015, 1, 12, 11, 0 , 0),
+        datetime(2015, 1, 12, 11, 10 , 10),
+    )) == 1220
+
+    assert sum_light((
+        datetime(2015, 1, 12, 10, 0 , 0),
+        datetime(2015, 1, 12, 10, 10 , 10),
+        datetime(2015, 1, 12, 11, 0 , 0),
+        datetime(2015, 1, 12, 11, 10 , 10),
+        datetime(2015, 1, 12, 11, 10 , 10),
+        datetime(2015, 1, 12, 12, 10 , 10),
+    )) == 4820
+
+    assert sum_light((
+        datetime(2015, 1, 12, 10, 0 , 0),
+        datetime(2015, 1, 12, 10, 0 , 1),
+    )) == 1
     print("Coding complete? Click 'Check' to earn cool rewards!")
+

@@ -33,16 +33,28 @@ from checkio.referees import cover_codes
 
 from tests import TESTS
 
+all_datetime_py = '''
+def cover(func, in_data):
+    from datetime import datetime
+    return func([datetime(*el) for el in in_data[0]])
+'''
+
+all_datetime_js = '''
+function cover(func, in_data) {
+    
+}
+'''
+
 api.add_listener(
     ON_CONNECT,
     CheckiOReferee(
         tests=TESTS,
         function_name={
-            "python": "sum_two",
-            "js": "sumTwo"
+            "python": "sum_light",
+            "js": "sumLight"
         },
         cover_code={
-            'python-3': cover_codes.unwrap_args,
+            'python-3': all_datetime,
             'js-node': cover_codes.js_unwrap_args
         }
     ).on_ready)
