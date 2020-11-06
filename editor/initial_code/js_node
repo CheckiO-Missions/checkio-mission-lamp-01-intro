@@ -1,19 +1,45 @@
-"use strict";
+import assert from "assert";
 
-function sumTwo(a, b) {
-    // sums two passed arguments
+function sumLight(els: Date[]): number {
+    // how long the light bulb has been turned on
 
     // your code here
     return 0;
 }
 
-var assert = require('assert');
-if (!global.is_checking) {
-    console.log('Example:');
-    console.log(sumTwo(3, 2));
+console.log('Example:');
+console.log(sumLight([
+    new Date(2015, 1, 12, 10, 0 , 0),
+    new Date(2015, 1, 12, 10, 10 , 10),
+    new Date(2015, 1, 12, 11, 0 , 0),
+    new Date(2015, 1, 12, 11, 10 , 10),
+]));
 
-    // These "asserts" are used for self-checking and not for an auto-testing
-    assert.equal(sumTwo(3, 2), 5);
-    assert.equal(sumTwo(5, 7), 12);
-    console.log("Coding complete? Click 'Check' to earn cool rewards!");
-}
+assert.equal(sumLight([
+    new Date(2015, 1, 12, 10, 0 , 0),
+    new Date(2015, 1, 12, 10, 10 , 10),
+    new Date(2015, 1, 12, 11, 0 , 0),
+    new Date(2015, 1, 12, 11, 10 , 10),
+]), 1220)
+
+assert.equal(sumLight([
+    new Date(2015, 1, 12, 10, 0 , 0),
+    new Date(2015, 1, 12, 10, 10 , 10),
+]), 610)
+
+assert.equal(sumLight([
+    new Date(2015, 1, 12, 10, 0 , 0),
+    new Date(2015, 1, 12, 10, 10 , 10),
+    new Date(2015, 1, 12, 11, 0 , 0),
+    new Date(2015, 1, 12, 11, 10 , 10),
+    new Date(2015, 1, 12, 11, 10 , 10),
+    new Date(2015, 1, 12, 12, 10 , 10),
+]), 4820)
+
+assert.equal(sumLight([
+    new Date(2015, 1, 12, 10, 0 , 0),
+    new Date(2015, 1, 12, 10, 0 , 1),
+]), 1)
+
+console.log("Coding complete? Click 'Check' to earn cool rewards!");
+

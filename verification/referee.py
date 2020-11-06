@@ -41,7 +41,8 @@ def cover(func, in_data):
 
 all_datetime_js = '''
 function cover(func, in_data) {
-    
+    var els = in_data[0].map(function(ee) {return new Date(ee[0], ee[1], ee[2], ee[3], ee[4], ee[5])});
+    return func(els);
 }
 '''
 
@@ -54,7 +55,7 @@ api.add_listener(
             "js": "sumLight"
         },
         cover_code={
-            'python-3': all_datetime,
-            'js-node': cover_codes.js_unwrap_args
+            'python-3': all_datetime_py,
+            'js-node': all_datetime_js
         }
     ).on_ready)
