@@ -8,13 +8,13 @@ With this mission I want to start a series of missions with light bulbs. They wi
     The first mission is quite simple. There is a light bulb, which by default is off, and a button, by pressing which the light bulb switches its state. This means that if the light bulb is off and the button is pressed, the light turns on, and if you press it again, it turns off.
 </p>
 
-<p class="for_info_only"><i>(Everything is easy. I am sure that if you’ve got to this mission, you should understand, but just in case I will add a visual.)</i></p>
+<p class="for_info_only"><i>(Everything is easy. I am sure that if you’ve got to this mission, you should understand, but just in case I add a visual.)</i></p>
 
 <p style="text-align: center;" class="for_info_only">
     <img  title="example" src="{{MEDIA}}composition.gif" alt="example" style="max-height: 400px"/>
 </p>
 
-<p>The function input is an array of datetime objects - this is the date and time of pressing the button. Your task is to determine how long the light bulb has been turned on. The array is always sorted in ascending order and has no repeated elements.</p>
+<p>The function input is an array of datetime objects - this is the date and time of pressing the button. Your task is to determine how long the light bulb has been turned on.</p>
 
 
 <!-- Explain input and output values -->
@@ -71,3 +71,12 @@ sum_light([
 </pre>
 {% endif %}
 </div>
+
+<p>
+    <strong>Precondition:</strong>
+</p>
+<ul>
+	<li><i>The array of pressing the button is always sorted in ascending order</i></li>
+	<li><i>The array of pressing the button has no repeated elements (which means the result should always be bigger than 0)</i></li>
+	<li><i>The amount of elements is always even (the light will eventually be off)</i></li>
+</ul>
