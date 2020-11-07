@@ -10,11 +10,12 @@
 
 <p><i>(Все просто. Уверен, что если ты дошел до этой миссии, то должен понять, но я на всякий случай еще картинку добавлю)</i></p>
 
+<p style="text-align: center;" class="for_info_only">
+    <img  title="example" src="{{MEDIA}}composition.gif" alt="example" style="max-height: 400px"/>
+</p>
+
 <p>На вход функции дан массив datetime объектов - это дата и время нажатия на кнопку. Ваша задача определить, как долго горела лампочка. Массив всегда отсортирован по возрастанию и в нем нет повторяющихся элементов.</p>
 
-<p style="text-align: center;">
-    <img  title="example" src="{{MEDIA}}example.png" alt="example" style="max-height: 83px"/>
-</p>
 
 <!-- Explain input and output values -->
 <p>
@@ -33,12 +34,40 @@
     </p>
 
 {% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">sumTwo(2, 3) == 5
-sumTwo(5, 7) == 12
+<pre class="brush: javascript">sumLight([
+    new Date(2015, 1, 12, 10, 0 , 0),
+    new Date(2015, 1, 12, 10, 10 , 10),
+]) == 610
+
+sumLight([
+    new Date(2015, 1, 12, 10, 0 , 0),
+    new Date(2015, 1, 12, 10, 10 , 10),
+    new Date(2015, 1, 12, 11, 0 , 0),
+    new Date(2015, 1, 12, 11, 10 , 10),
+]) == 1220
+
+sumLight([
+    new Date(2015, 1, 12, 10, 0 , 0),
+    new Date(2015, 1, 12, 10, 0 , 1),
+]) == 1
 </pre>
 {% else %}
-<pre class="brush: python">sum_two(2, 3) == 5
-sum_two(5, 7) == 12
+<pre class="brush: python">sum_light([
+    datetime(2015, 1, 12, 10, 0 , 0),
+    datetime(2015, 1, 12, 10, 10 , 10),
+]) == 610
+
+sum_light([
+    datetime(2015, 1, 12, 10, 0 , 0),
+    datetime(2015, 1, 12, 10, 10 , 10),
+    datetime(2015, 1, 12, 11, 0 , 0),
+    datetime(2015, 1, 12, 11, 10 , 10),
+]) == 1220
+
+sum_light([
+    datetime(2015, 1, 12, 10, 0 , 0),
+    datetime(2015, 1, 12, 10, 0 , 1),
+]) == 1
 </pre>
 {% endif %}
 </div>

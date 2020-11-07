@@ -19,11 +19,11 @@ With this mission I want to start a series of missions with light bulbs. They wi
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Input: </strong> Two arguments. Both are ints.
+    <strong>Input: </strong> {% if is_js %}Array of Date objects{% else %}A list of datetime objects{% endif %}
 </p>
 
 <p>
-    <strong>Output: </strong> An int. 
+    <strong>Output: </strong> Amount of seconds as an integer. 
 </p>
 
 
@@ -34,12 +34,40 @@ With this mission I want to start a series of missions with light bulbs. They wi
     </p>
 
 {% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">sumTwo(2, 3) == 5
-sumTwo(5, 7) == 12
+<pre class="brush: javascript">sumLight([
+    new Date(2015, 1, 12, 10, 0 , 0),
+    new Date(2015, 1, 12, 10, 10 , 10),
+]) == 610
+
+sumLight([
+    new Date(2015, 1, 12, 10, 0 , 0),
+    new Date(2015, 1, 12, 10, 10 , 10),
+    new Date(2015, 1, 12, 11, 0 , 0),
+    new Date(2015, 1, 12, 11, 10 , 10),
+]) == 1220
+
+sumLight([
+    new Date(2015, 1, 12, 10, 0 , 0),
+    new Date(2015, 1, 12, 10, 0 , 1),
+]) == 1
 </pre>
 {% else %}
-<pre class="brush: python">sum_two(2, 3) == 5
-sum_two(5, 7) == 12
+<pre class="brush: python">sum_light([
+    datetime(2015, 1, 12, 10, 0 , 0),
+    datetime(2015, 1, 12, 10, 10 , 10),
+]) == 610
+
+sum_light([
+    datetime(2015, 1, 12, 10, 0 , 0),
+    datetime(2015, 1, 12, 10, 10 , 10),
+    datetime(2015, 1, 12, 11, 0 , 0),
+    datetime(2015, 1, 12, 11, 10 , 10),
+]) == 1220
+
+sum_light([
+    datetime(2015, 1, 12, 10, 0 , 0),
+    datetime(2015, 1, 12, 10, 0 , 1),
+]) == 1
 </pre>
 {% endif %}
 </div>

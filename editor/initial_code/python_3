@@ -10,38 +10,39 @@ def sum_light(els: List[datetime]) -> int:
 
 if __name__ == '__main__':
     print("Example:")
-    print(sum_light((
+    print(sum_light([
         datetime(2015, 1, 12, 10, 0 , 0),
         datetime(2015, 1, 12, 10, 10 , 10),
         datetime(2015, 1, 12, 11, 0 , 0),
         datetime(2015, 1, 12, 11, 10 , 10),
-    )))
+    ]))
     
     # These "asserts" are used for self-checking and not for an auto-testing
-    assert sum_light((
+    assert sum_light([
         datetime(2015, 1, 12, 10, 0 , 0),
         datetime(2015, 1, 12, 10, 10 , 10),
-    )) == 610
+    ]) == 610
 
-    assert sum_light((
+    assert sum_light([
         datetime(2015, 1, 12, 10, 0 , 0),
         datetime(2015, 1, 12, 10, 10 , 10),
         datetime(2015, 1, 12, 11, 0 , 0),
         datetime(2015, 1, 12, 11, 10 , 10),
-    )) == 1220
+    ]) == 1220
 
-    assert sum_light((
+    assert sum_light([
         datetime(2015, 1, 12, 10, 0 , 0),
         datetime(2015, 1, 12, 10, 10 , 10),
         datetime(2015, 1, 12, 11, 0 , 0),
         datetime(2015, 1, 12, 11, 10 , 10),
         datetime(2015, 1, 12, 11, 10 , 10),
         datetime(2015, 1, 12, 12, 10 , 10),
-    )) == 4820
+    ]) == 4820
 
-    assert sum_light((
+    assert sum_light([
         datetime(2015, 1, 12, 10, 0 , 0),
         datetime(2015, 1, 12, 10, 0 , 1),
-    )) == 1
+    ]) == 1
+    
     print("Coding complete? Click 'Check' to earn cool rewards!")
 

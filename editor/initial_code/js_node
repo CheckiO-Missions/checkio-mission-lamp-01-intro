@@ -41,5 +41,5 @@ assert.equal(sumLight([
     new Date(2015, 1, 12, 10, 0 , 1),
 ]), 1)
 
-console.log("Coding complete? Click 'Check' to earn cool rewards!");
+console.log("First lamp mission is complete? Click 'Check' to earn cool rewards!");
 
