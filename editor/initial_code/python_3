@@ -44,5 +44,5 @@ if __name__ == '__main__':
         datetime(2015, 1, 12, 10, 0 , 1),
     ]) == 1
 
-    print("First lamp mission is complete? Click 'Check' to earn cool rewards!")
+    print("The first mission in series is completed? Click 'Check' to earn cool rewards!")
 
