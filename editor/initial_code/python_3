@@ -44,5 +44,12 @@ if __name__ == '__main__':
         datetime(2015, 1, 12, 10, 0 , 1),
     ]) == 1
 
+    assert sum_light([
+        datetime(2015, 1, 12, 10, 0 , 0),
+        datetime(2015, 1, 12, 10, 0 , 10),
+        datetime(2015, 1, 12, 11, 0 , 0),
+        datetime(2015, 1, 13, 11, 0 , 0),
+    ]) == 86410
+
     print("The first mission in series is completed? Click 'Check' to earn cool rewards!")
 
