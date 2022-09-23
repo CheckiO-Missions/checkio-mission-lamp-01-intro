@@ -1,0 +1,122 @@
+<body data-author="Doppelok">
+<div class="question-answer">
+  <div class="question">
+    I don't know how to start solving this mission
+  </div>
+  <div class="answer">
+    Your task in this mission, as already clear from the condition, is to calculate how long the light bulb was on.
+      I will explain a little how to approach the solution: in the list, the time of inclusion and exclusion is given
+      gradually (inclusion, exclusion, inclusion, exclusion...), so you can easily divide this list into corresponding
+      lists with inclusions and exclusions separately, and then everything is simple - return amount of running time
+      in seconds.
+  </div>
+</div>
+<div class="question-answer">
+  <div class="question">
+    I need help to continue the mission
+  </div>
+  <div class="answer">
+    It will be useful for you to read some information about:
+    <a href='https://docs.python.org/3.10/library/datetime.html'>datetime</a> - the module,
+    <a href='https://docs.python.org/3.10/tutorial/datastructures.html'>list.index()</a>
+    (<a href='https://www.w3schools.com/python/ref_list_index.asp'>example</a> ), and
+    <a href='https://docs.python.org/3.10/library/datetime.html'>datetime.total_seconds()</a>.
+  </div>
+</div>
+<div class="question-answer">
+  <div class="question">
+    Need help!
+  </div>
+  <div class="answer">
+    First, we will create a list in which we will store the time when the light bulb is turned off.
+      This can be done using a regular list slice.
+    <pre class="brush: python">
+els=[
+        datetime(2015, 1, 12, 10, 0 , 0),
+        datetime(2015, 1, 12, 10, 10 , 10),
+    ]
+els_1 = els[1::2]
+print(els_1)
+
+# output
+# [datetime(2015, 1, 12, 10, 10 , 10)]
+        </pre>
+  </div>
+</div>
+<div class="question-answer">
+  <div class="question">
+    I don't know what to do anymore. I need a little hint.
+  </div>
+  <div class="answer">
+    Next, we will add a for loop, in which we will go through our new list. In this loop, we will implement the calculation
+      of the time of operation of the light bulb in future.
+    <pre class="brush: python">
+els=[
+        datetime(2015, 1, 12, 10, 0 , 0),
+        datetime(2015, 1, 12, 10, 10 , 10),
+    ]
+els_1 = els[1::2]
+for i in els_1:
+    # do something
+        </pre>
+  </div>
+</div>
+<div class="question-answer">
+  <div class="question">
+    Nothing works. SOS
+  </div>
+  <div class="answer">
+    Okay, you have to add another variable in which we will store our result. Calculating the operating time is very
+      simple, you need to subtract the on time from the off time and then add this difference in seconds to our result.
+    <pre class="brush: python">
+els=[
+        datetime(2015, 1, 12, 10, 0 , 0),
+        datetime(2015, 1, 12, 10, 10 , 10),
+    ]
+els_1 = els[1::2]
+result = 0
+for i in els_1:
+    result += int((i-els[els.index(i)-1]).total_seconds())
+        </pre>
+  </div>
+</div>
+<div class="question-answer">
+  <div class="question">
+    I don't want to give up, help!
+  </div>
+  <div class="answer">
+    All you have to do is wrap this code in a function expression and return our result.
+    <pre class="brush: python">
+from datetime import datetime
+from typing import List
+
+def sum_light(els: List[datetime]) -> int:
+    result = 0
+    els_1 = els[1::2]
+    for i in els_1:
+        result += int((i-els[els.index(i)-1]).total_seconds())
+    return result
+        </pre>
+  </div>
+</div>
+<div class="question-answer">
+  <div class="question">
+    I want to be the best of the best PROGRAMMERS!!! SHOW ME MORE SOLUTIONS!!1!!!11!
+  </div>
+  <div class="answer">
+    Okay, okay! That's the spirit!=)
+    Here's a one-line version using the zip() function. The logic is the same, only there are not two lists,
+      but one with grouped pairs of light bulbs on and off.
+    <pre class="brush: python">
+from datetime import datetime
+from typing import List
+
+
+def sum_light(els: List[datetime]) -> int:
+    return sum([(b - a).total_seconds() for a, b in zip(els[::2], els[1::2])])
+        </pre>
+  </div>
+</div>
+
+
+</body>

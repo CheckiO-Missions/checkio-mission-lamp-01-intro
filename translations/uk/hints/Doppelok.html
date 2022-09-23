@@ -1,0 +1,121 @@
+<body data-author="Doppelok">
+<div class="question-answer">
+  <div class="question">
+    Я не знаю, як розпочати вирішення цієї місії
+  </div>
+  <div class="answer">
+    Твоя задача в цій місії, як вже ясно з умови, вирахувати скільки часу горіла лампочка. Трошки поясню як підступитись
+      до вирішення: у списку час включення та виключення дано поступово (включення, виключення, включення, виключення...),
+      тому ти можеш спокійно розбити цей список на відповідні списки із включеннями та виключеннями окремо, а далі все просто -
+      поверни суму часу роботи в секундах.
+  </div>
+</div>
+<div class="question-answer">
+  <div class="question">
+    Мені потрібна допомога, щоб продовжити місію
+  </div>
+  <div class="answer">
+    Тобі буде корисно прочитати трохи інформації про:
+    <a href='https://docs.python.org/3.10/library/datetime.html'>datetime</a> бібліотеку,
+    <a href='https://docs.python.org/3.10/tutorial/datastructures.html'>list.index()</a>
+    (<a href='https://www.w3schools.com/python/ref_list_index.asp'>приклад</a> ), та
+    <a href='https://docs.python.org/3.10/library/datetime.html'>datetime.total_seconds()</a>.
+  </div>
+</div>
+<div class="question-answer">
+  <div class="question">
+    Потрібна допомога!
+  </div>
+  <div class="answer">
+    Спочатку ми створимо список, в якому збережемо час вимикання лампочки. Це можна зробити за допомогою звичайного
+      зрізу списку.
+    <pre class="brush: python">
+els=[
+        datetime(2015, 1, 12, 10, 0 , 0),
+        datetime(2015, 1, 12, 10, 10 , 10),
+    ]
+els_1 = els[1::2]
+print(els_1)
+
+# output
+# [datetime(2015, 1, 12, 10, 10 , 10)]
+        </pre>
+  </div>
+</div>
+<div class="question-answer">
+  <div class="question">
+    Я вже не знаю що робити. Мені потрібна маленька підказка.
+  </div>
+  <div class="answer">
+    Далі додамо цикл for, в якому ми будемо проходитись по нашому новому списку. В цьому циклі нам потрібно буде потім
+      реалізувати розрахунок часу роботи лампочки.
+    <pre class="brush: python">
+els=[
+        datetime(2015, 1, 12, 10, 0 , 0),
+        datetime(2015, 1, 12, 10, 10 , 10),
+    ]
+els_1 = els[1::2]
+for i in els_1:
+    # do something
+        </pre>
+  </div>
+</div>
+<div class="question-answer">
+  <div class="question">
+    Нічого не працює. SOS
+  </div>
+  <div class="answer">
+    Гаразд, ти маєш додати ще одну змінну, в якій ми будемо зберігати наш результат. Розрахунок часу роботи дуже простий,
+      тобі потрібно від часу вимкнення відняти час увімкнення, а потім додати цю різницю у формі секунд до нашого результату.
+    <pre class="brush: python">
+els=[
+        datetime(2015, 1, 12, 10, 0 , 0),
+        datetime(2015, 1, 12, 10, 10 , 10),
+    ]
+els_1=els[1::2]
+result = 0
+for i in els_1:
+    result += int((i-els[els.index(i)-1]).total_seconds())
+        </pre>
+  </div>
+</div>
+<div class="question-answer">
+  <div class="question">
+    Не хочу здаватись, допоможи!
+  </div>
+  <div class="answer">
+    Тобі залишилось обгорнути цей код у вираз функції та повернути наш результат.
+    <pre class="brush: python">
+from datetime import datetime
+from typing import List
+
+def sum_light(els: List[datetime]) -> int:
+    result=0
+    els_1 = els[1::2]
+    for i in els_1:
+        result += int((i-els[els.index(i)-1]).total_seconds())
+    return result
+        </pre>
+  </div>
+</div>
+<div class="question-answer">
+  <div class="question">
+    Я хочу бути кращим з кращих ПРОГРАМІСТІВ!!! ПОКАЖИ МЕНІ БІЛЬШЕ РІШЕНЬ!!1!!!11!
+  </div>
+  <div class="answer">
+    Добре, добре! Оце настрій!=)
+    Ось варіант one-line з використанням функції zip(). Логіка така сама, тільки тут не два списки, а один зі згрупованими
+      парами увімкнення та вимкнення лампочки.
+    <pre class="brush: python">
+from datetime import datetime
+from typing import List
+
+
+def sum_light(els: List[datetime]) -> int:
+    return sum([(b - a).total_seconds() for a, b in zip(els[::2], els[1::2])])
+        </pre>
+  </div>
+</div>
+
+
+</body>
