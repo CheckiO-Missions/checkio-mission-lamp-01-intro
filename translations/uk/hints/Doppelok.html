@@ -19,7 +19,7 @@
     <a href='https://docs.python.org/3.10/library/datetime.html'>datetime</a> бібліотеку,
     <a href='https://docs.python.org/3.10/tutorial/datastructures.html'>list.index()</a>
     (<a href='https://www.w3schools.com/python/ref_list_index.asp'>приклад</a> ), та
-    <a href='https://docs.python.org/3.10/library/datetime.html?highlight=d%20total_seconds#datetime.timedelta.total_seconds'>datetime.total_seconds()</a>.
+    <a href='https://docs.python.org/3.10/library/datetime.html'>datetime.total_seconds()</a>.
   </div>
 </div>
 <div class="question-answer">
@@ -34,11 +34,11 @@ els=[
         datetime(2015, 1, 12, 10, 0 , 0),
         datetime(2015, 1, 12, 10, 10 , 10),
     ]
-els_1=els[1::2]
+els_1 = els[1::2]
 print(els_1)
 
 # output
-[datetime(2015, 1, 12, 10, 10 , 10)]
+# [datetime(2015, 1, 12, 10, 10 , 10)]
         </pre>
   </div>
 </div>
@@ -54,7 +54,7 @@ els=[
         datetime(2015, 1, 12, 10, 0 , 0),
         datetime(2015, 1, 12, 10, 10 , 10),
     ]
-els_1=els[1::2]
+els_1 = els[1::2]
 for i in els_1:
     # do something
         </pre>
@@ -91,8 +91,7 @@ from typing import List
 
 def sum_light(els: List[datetime]) -> int:
     result=0
-    els_1=els[1::2]
-    print(1, els_1)
+    els_1 = els[1::2]
     for i in els_1:
         result += int((i-els[els.index(i)-1]).total_seconds())
     return result
